@@ -1,0 +1,14 @@
+{
+  "demographics_by_age_sex.csv": {
+    "sha256": "928101e59f781f21a8ba9a98c88c610fb2ed750433e4370bcf73271f778bc0e6",
+    "bytes": 352
+  },
+  "road_user_trends.csv": {
+    "sha256": "07e3dc5321e891c9fa25b9cabfb37d4652ef495c3700f135d5b6a1ce75582faf",
+    "bytes": 1832
+  },
+  "severity_by_remoteness.csv": {
+    "sha256": "a4f49fbf5282c9f53a7d0302ff1fd5421a5430b22a3e175546670ecc519260e7",
+    "bytes": 1650
+  }
+}
