@@ -1,0 +1,353 @@
+year,status,dimension,category,value,suppressed
+2011,First Nations,road,"Car driver, passenger or unknown position",617,False
+2011,First Nations,road,Motorcyclist,187,False
+2011,First Nations,road,Pedal cyclist,121,False
+2011,First Nations,road,Pedestrian,180,False
+2011,First Nations,road,"Heavy transport driver, passenger or unknown position",,True
+2011,First Nations,road,Pick-up truck or van occupant,,True
+2011,First Nations,road,Bus occupant,,True
+2012,First Nations,road,"Car driver, passenger or unknown position",758,False
+2012,First Nations,road,Motorcyclist,218,False
+2012,First Nations,road,Pedal cyclist,152,False
+2012,First Nations,road,Pedestrian,219,False
+2012,First Nations,road,"Heavy transport driver, passenger or unknown position",,True
+2012,First Nations,road,Pick-up truck or van occupant,,True
+2012,First Nations,road,Bus occupant,,True
+2013,First Nations,road,"Car driver, passenger or unknown position",755,False
+2013,First Nations,road,Motorcyclist,267,False
+2013,First Nations,road,Pedal cyclist,173,False
+2013,First Nations,road,Pedestrian,166,False
+2013,First Nations,road,"Heavy transport driver, passenger or unknown position",,True
+2013,First Nations,road,Pick-up truck or van occupant,,True
+2013,First Nations,road,Bus occupant,,True
+2014,First Nations,road,"Car driver, passenger or unknown position",759,False
+2014,First Nations,road,Motorcyclist,254,False
+2014,First Nations,road,Pedal cyclist,177,False
+2014,First Nations,road,Pedestrian,196,False
+2014,First Nations,road,"Heavy transport driver, passenger or unknown position",15,False
+2014,First Nations,road,Pick-up truck or van occupant,,True
+2014,First Nations,road,Bus occupant,,True
+2015,First Nations,road,"Car driver, passenger or unknown position",883,False
+2015,First Nations,road,Motorcyclist,273,False
+2015,First Nations,road,Pedal cyclist,177,False
+2015,First Nations,road,Pedestrian,206,False
+2015,First Nations,road,"Heavy transport driver, passenger or unknown position",15,False
+2015,First Nations,road,Pick-up truck or van occupant,,True
+2015,First Nations,road,Bus occupant,,True
+2016,First Nations,road,"Car driver, passenger or unknown position",928,False
+2016,First Nations,road,Motorcyclist,296,False
+2016,First Nations,road,Pedal cyclist,190,False
+2016,First Nations,road,Pedestrian,190,False
+2016,First Nations,road,"Heavy transport driver, passenger or unknown position",14,False
+2016,First Nations,road,Pick-up truck or van occupant,,True
+2016,First Nations,road,Bus occupant,,True
+2017,First Nations,road,"Car driver, passenger or unknown position",938,False
+2017,First Nations,road,Motorcyclist,319,False
+2017,First Nations,road,Pedal cyclist,201,False
+2017,First Nations,road,Pedestrian,209,False
+2017,First Nations,road,"Heavy transport driver, passenger or unknown position",15,False
+2017,First Nations,road,Pick-up truck or van occupant,,True
+2017,First Nations,road,Bus occupant,,True
+2018,First Nations,road,"Car driver, passenger or unknown position",1113,False
+2018,First Nations,road,Motorcyclist,333,False
+2018,First Nations,road,Pedal cyclist,199,False
+2018,First Nations,road,Pedestrian,209,False
+2018,First Nations,road,"Heavy transport driver, passenger or unknown position",20,False
+2018,First Nations,road,Pick-up truck or van occupant,,True
+2018,First Nations,road,Bus occupant,,True
+2019,First Nations,road,"Car driver, passenger or unknown position",996,False
+2019,First Nations,road,Motorcyclist,353,False
+2019,First Nations,road,Pedal cyclist,240,False
+2019,First Nations,road,Pedestrian,211,False
+2019,First Nations,road,"Heavy transport driver, passenger or unknown position",,True
+2019,First Nations,road,Pick-up truck or van occupant,11,False
+2019,First Nations,road,Bus occupant,,True
+2020,First Nations,road,"Car driver, passenger or unknown position",1208,False
+2020,First Nations,road,Motorcyclist,545,False
+2020,First Nations,road,Pedal cyclist,230,False
+2020,First Nations,road,Pedestrian,223,False
+2020,First Nations,road,"Heavy transport driver, passenger or unknown position",10,False
+2020,First Nations,road,Pick-up truck or van occupant,19,False
+2020,First Nations,road,Bus occupant,10,False
+2021,First Nations,road,"Car driver, passenger or unknown position",1158,False
+2021,First Nations,road,Motorcyclist,520,False
+2021,First Nations,road,Pedal cyclist,207,False
+2021,First Nations,road,Pedestrian,235,False
+2021,First Nations,road,"Heavy transport driver, passenger or unknown position",,True
+2021,First Nations,road,Pick-up truck or van occupant,28,False
+2021,First Nations,road,Bus occupant,,True
+2011,Non-Indigenous,road,"Car driver, passenger or unknown position",15597,False
+2011,Non-Indigenous,road,Motorcyclist,7185,False
+2011,Non-Indigenous,road,Pedal cyclist,5174,False
+2011,Non-Indigenous,road,Pedestrian,2522,False
+2011,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",,True
+2011,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2011,Non-Indigenous,road,Bus occupant,,True
+2012,Non-Indigenous,road,"Car driver, passenger or unknown position",15250,False
+2012,Non-Indigenous,road,Motorcyclist,7348,False
+2012,Non-Indigenous,road,Pedal cyclist,5379,False
+2012,Non-Indigenous,road,Pedestrian,2390,False
+2012,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",,True
+2012,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2012,Non-Indigenous,road,Bus occupant,,True
+2013,Non-Indigenous,road,"Car driver, passenger or unknown position",15439,False
+2013,Non-Indigenous,road,Motorcyclist,7617,False
+2013,Non-Indigenous,road,Pedal cyclist,5985,False
+2013,Non-Indigenous,road,Pedestrian,2409,False
+2013,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",,True
+2013,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2013,Non-Indigenous,road,Bus occupant,,True
+2014,Non-Indigenous,road,"Car driver, passenger or unknown position",15363,False
+2014,Non-Indigenous,road,Motorcyclist,7919,False
+2014,Non-Indigenous,road,Pedal cyclist,6354,False
+2014,Non-Indigenous,road,Pedestrian,2316,False
+2014,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",449,False
+2014,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2014,Non-Indigenous,road,Bus occupant,,True
+2015,Non-Indigenous,road,"Car driver, passenger or unknown position",16692,False
+2015,Non-Indigenous,road,Motorcyclist,7855,False
+2015,Non-Indigenous,road,Pedal cyclist,6435,False
+2015,Non-Indigenous,road,Pedestrian,2378,False
+2015,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",479,False
+2015,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2015,Non-Indigenous,road,Bus occupant,,True
+2016,Non-Indigenous,road,"Car driver, passenger or unknown position",17872,False
+2016,Non-Indigenous,road,Motorcyclist,8111,False
+2016,Non-Indigenous,road,Pedal cyclist,6613,False
+2016,Non-Indigenous,road,Pedestrian,2514,False
+2016,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",452,False
+2016,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2016,Non-Indigenous,road,Bus occupant,,True
+2017,Non-Indigenous,road,"Car driver, passenger or unknown position",17901,False
+2017,Non-Indigenous,road,Motorcyclist,8318,False
+2017,Non-Indigenous,road,Pedal cyclist,6782,False
+2017,Non-Indigenous,road,Pedestrian,2465,False
+2017,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",500,False
+2017,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2017,Non-Indigenous,road,Bus occupant,,True
+2018,Non-Indigenous,road,"Car driver, passenger or unknown position",18337,False
+2018,Non-Indigenous,road,Motorcyclist,8200,False
+2018,Non-Indigenous,road,Pedal cyclist,6676,False
+2018,Non-Indigenous,road,Pedestrian,2412,False
+2018,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",524,False
+2018,Non-Indigenous,road,Pick-up truck or van occupant,,True
+2018,Non-Indigenous,road,Bus occupant,,True
+2019,Non-Indigenous,road,"Car driver, passenger or unknown position",18006,False
+2019,Non-Indigenous,road,Motorcyclist,8463,False
+2019,Non-Indigenous,road,Pedal cyclist,6984,False
+2019,Non-Indigenous,road,Pedestrian,2461,False
+2019,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",,True
+2019,Non-Indigenous,road,Pick-up truck or van occupant,244,False
+2019,Non-Indigenous,road,Bus occupant,,True
+2020,Non-Indigenous,road,"Car driver, passenger or unknown position",15843,False
+2020,Non-Indigenous,road,Motorcyclist,8038,False
+2020,Non-Indigenous,road,Pedal cyclist,8012,False
+2020,Non-Indigenous,road,Pedestrian,1857,False
+2020,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",476,False
+2020,Non-Indigenous,road,Pick-up truck or van occupant,275,False
+2020,Non-Indigenous,road,Bus occupant,160,False
+2021,Non-Indigenous,road,"Car driver, passenger or unknown position",17098,False
+2021,Non-Indigenous,road,Motorcyclist,8259,False
+2021,Non-Indigenous,road,Pedal cyclist,7861,False
+2021,Non-Indigenous,road,Pedestrian,2072,False
+2021,Non-Indigenous,road,"Heavy transport driver, passenger or unknown position",,True
+2021,Non-Indigenous,road,Pick-up truck or van occupant,312,False
+2021,Non-Indigenous,road,Bus occupant,,True
+2011,First Nations,age,0-7,92,False
+2011,First Nations,age,8-16,204,False
+2011,First Nations,age,17-25,335,False
+2011,First Nations,age,26-39,286,False
+2011,First Nations,age,40-64,226,False
+2011,First Nations,age,65+,24,False
+2012,First Nations,age,0-7,81,False
+2012,First Nations,age,8-16,229,False
+2012,First Nations,age,17-25,385,False
+2012,First Nations,age,26-39,372,False
+2012,First Nations,age,40-64,315,False
+2012,First Nations,age,65+,22,False
+2013,First Nations,age,0-7,78,False
+2013,First Nations,age,8-16,242,False
+2013,First Nations,age,17-25,422,False
+2013,First Nations,age,26-39,366,False
+2013,First Nations,age,40-64,279,False
+2013,First Nations,age,65+,27,False
+2014,First Nations,age,0-7,,True
+2014,First Nations,age,8-16,220,False
+2014,First Nations,age,17-25,422,False
+2014,First Nations,age,26-39,388,False
+2014,First Nations,age,40-64,314,False
+2014,First Nations,age,65+,,True
+2015,First Nations,age,0-7,79,False
+2015,First Nations,age,8-16,239,False
+2015,First Nations,age,17-25,420,False
+2015,First Nations,age,26-39,449,False
+2015,First Nations,age,40-64,372,False
+2015,First Nations,age,65+,41,False
+2016,First Nations,age,0-7,89,False
+2016,First Nations,age,8-16,254,False
+2016,First Nations,age,17-25,501,False
+2016,First Nations,age,26-39,422,False
+2016,First Nations,age,40-64,374,False
+2016,First Nations,age,65+,29,False
+2017,First Nations,age,0-7,81,False
+2017,First Nations,age,8-16,251,False
+2017,First Nations,age,17-25,506,False
+2017,First Nations,age,26-39,435,False
+2017,First Nations,age,40-64,418,False
+2017,First Nations,age,65+,42,False
+2018,First Nations,age,0-7,70,False
+2018,First Nations,age,8-16,253,False
+2018,First Nations,age,17-25,607,False
+2018,First Nations,age,26-39,542,False
+2018,First Nations,age,40-64,411,False
+2018,First Nations,age,65+,47,False
+2019,First Nations,age,0-7,78,False
+2019,First Nations,age,8-16,248,False
+2019,First Nations,age,17-25,521,False
+2019,First Nations,age,26-39,539,False
+2019,First Nations,age,40-64,411,False
+2019,First Nations,age,65+,59,False
+2020,First Nations,age,0-7,82,False
+2020,First Nations,age,8-16,295,False
+2020,First Nations,age,17-25,705,False
+2020,First Nations,age,26-39,659,False
+2020,First Nations,age,40-64,496,False
+2020,First Nations,age,65+,53,False
+2021,First Nations,age,0-7,86,False
+2021,First Nations,age,8-16,291,False
+2021,First Nations,age,17-25,686,False
+2021,First Nations,age,26-39,597,False
+2021,First Nations,age,40-64,515,False
+2021,First Nations,age,65+,45,False
+2011,Non-Indigenous,age,0-7,614,False
+2011,Non-Indigenous,age,8-16,2277,False
+2011,Non-Indigenous,age,17-25,7546,False
+2011,Non-Indigenous,age,26-39,7659,False
+2011,Non-Indigenous,age,40-64,10166,False
+2011,Non-Indigenous,age,65+,3735,False
+2012,Non-Indigenous,age,0-7,653,False
+2012,Non-Indigenous,age,8-16,2065,False
+2012,Non-Indigenous,age,17-25,7459,False
+2012,Non-Indigenous,age,26-39,7670,False
+2012,Non-Indigenous,age,40-64,10081,False
+2012,Non-Indigenous,age,65+,3862,False
+2013,Non-Indigenous,age,0-7,647,False
+2013,Non-Indigenous,age,8-16,2111,False
+2013,Non-Indigenous,age,17-25,7251,False
+2013,Non-Indigenous,age,26-39,7929,False
+2013,Non-Indigenous,age,40-64,10820,False
+2013,Non-Indigenous,age,65+,4081,False
+2014,Non-Indigenous,age,0-7,,True
+2014,Non-Indigenous,age,8-16,1980,False
+2014,Non-Indigenous,age,17-25,7150,False
+2014,Non-Indigenous,age,26-39,8107,False
+2014,Non-Indigenous,age,40-64,11105,False
+2014,Non-Indigenous,age,65+,,True
+2015,Non-Indigenous,age,0-7,654,False
+2015,Non-Indigenous,age,8-16,2176,False
+2015,Non-Indigenous,age,17-25,7316,False
+2015,Non-Indigenous,age,26-39,8369,False
+2015,Non-Indigenous,age,40-64,11587,False
+2015,Non-Indigenous,age,65+,4671,False
+2016,Non-Indigenous,age,0-7,634,False
+2016,Non-Indigenous,age,8-16,2200,False
+2016,Non-Indigenous,age,17-25,7839,False
+2016,Non-Indigenous,age,26-39,8897,False
+2016,Non-Indigenous,age,40-64,12157,False
+2016,Non-Indigenous,age,65+,4957,False
+2017,Non-Indigenous,age,0-7,642,False
+2017,Non-Indigenous,age,8-16,2222,False
+2017,Non-Indigenous,age,17-25,7856,False
+2017,Non-Indigenous,age,26-39,8926,False
+2017,Non-Indigenous,age,40-64,12329,False
+2017,Non-Indigenous,age,65+,5055,False
+2018,Non-Indigenous,age,0-7,646,False
+2018,Non-Indigenous,age,8-16,2144,False
+2018,Non-Indigenous,age,17-25,7622,False
+2018,Non-Indigenous,age,26-39,9100,False
+2018,Non-Indigenous,age,40-64,12381,False
+2018,Non-Indigenous,age,65+,5305,False
+2019,Non-Indigenous,age,0-7,616,False
+2019,Non-Indigenous,age,8-16,2219,False
+2019,Non-Indigenous,age,17-25,7486,False
+2019,Non-Indigenous,age,26-39,8968,False
+2019,Non-Indigenous,age,40-64,12579,False
+2019,Non-Indigenous,age,65+,5614,False
+2020,Non-Indigenous,age,0-7,620,False
+2020,Non-Indigenous,age,8-16,2478,False
+2020,Non-Indigenous,age,17-25,7183,False
+2020,Non-Indigenous,age,26-39,8405,False
+2020,Non-Indigenous,age,40-64,11674,False
+2020,Non-Indigenous,age,65+,4826,False
+2021,Non-Indigenous,age,0-7,610,False
+2021,Non-Indigenous,age,8-16,2533,False
+2021,Non-Indigenous,age,17-25,7225,False
+2021,Non-Indigenous,age,26-39,8689,False
+2021,Non-Indigenous,age,40-64,12337,False
+2021,Non-Indigenous,age,65+,5361,False
+2011,First Nations,area,Major Cities,368,False
+2011,First Nations,area,Regional,455,False
+2011,First Nations,area,Remote,330,False
+2012,First Nations,area,Major Cities,429,False
+2012,First Nations,area,Regional,545,False
+2012,First Nations,area,Remote,426,False
+2013,First Nations,area,Major Cities,446,False
+2013,First Nations,area,Regional,540,False
+2013,First Nations,area,Remote,420,False
+2014,First Nations,area,Major Cities,486,False
+2014,First Nations,area,Regional,565,False
+2014,First Nations,area,Remote,392,False
+2015,First Nations,area,Major Cities,508,False
+2015,First Nations,area,Regional,613,False
+2015,First Nations,area,Remote,461,False
+2016,First Nations,area,Major Cities,551,False
+2016,First Nations,area,Regional,648,False
+2016,First Nations,area,Remote,454,False
+2017,First Nations,area,Major Cities,617,False
+2017,First Nations,area,Regional,704,False
+2017,First Nations,area,Remote,393,False
+2018,First Nations,area,Major Cities,642,False
+2018,First Nations,area,Regional,797,False
+2018,First Nations,area,Remote,466,False
+2019,First Nations,area,Major Cities,708,False
+2019,First Nations,area,Regional,669,False
+2019,First Nations,area,Remote,447,False
+2020,First Nations,area,Major Cities,810,False
+2020,First Nations,area,Regional,946,False
+2020,First Nations,area,Remote,504,False
+2021,First Nations,area,Major Cities,795,False
+2021,First Nations,area,Regional,885,False
+2021,First Nations,area,Remote,503,False
+2011,Non-Indigenous,area,Major Cities,20985,False
+2011,Non-Indigenous,area,Regional,9717,False
+2011,Non-Indigenous,area,Remote,789,False
+2012,Non-Indigenous,area,Major Cities,20858,False
+2012,Non-Indigenous,area,Regional,9536,False
+2012,Non-Indigenous,area,Remote,802,False
+2013,Non-Indigenous,area,Major Cities,22224,False
+2013,Non-Indigenous,area,Regional,9218,False
+2013,Non-Indigenous,area,Remote,765,False
+2014,Non-Indigenous,area,Major Cities,22572,False
+2014,Non-Indigenous,area,Regional,9358,False
+2014,Non-Indigenous,area,Remote,737,False
+2015,Non-Indigenous,area,Major Cities,23597,False
+2015,Non-Indigenous,area,Regional,9684,False
+2015,Non-Indigenous,area,Remote,694,False
+2016,Non-Indigenous,area,Major Cities,25390,False
+2016,Non-Indigenous,area,Regional,9846,False
+2016,Non-Indigenous,area,Remote,678,False
+2017,Non-Indigenous,area,Major Cities,25288,False
+2017,Non-Indigenous,area,Regional,10163,False
+2017,Non-Indigenous,area,Remote,653,False
+2018,Non-Indigenous,area,Major Cities,25236,False
+2018,Non-Indigenous,area,Regional,10278,False
+2018,Non-Indigenous,area,Remote,720,False
+2019,Non-Indigenous,area,Major Cities,25502,False
+2019,Non-Indigenous,area,Regional,10232,False
+2019,Non-Indigenous,area,Remote,638,False
+2020,Non-Indigenous,area,Major Cities,23823,False
+2020,Non-Indigenous,area,Regional,9936,False
+2020,Non-Indigenous,area,Remote,660,False
+2021,Non-Indigenous,area,Major Cities,25254,False
+2021,Non-Indigenous,area,Regional,10332,False
+2021,Non-Indigenous,area,Remote,600,False

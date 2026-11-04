@@ -1,12 +1,12 @@
 <!doctype html>
-<!-- Generative AI acknowledgement: HTML, CSS and D3 implementation assisted by OpenAI Codex, 26 October 2026. Data supplied by Group 16. -->
+<!-- GenAI acknowledgement: dashboard implementation assisted by OpenAI Codex, 4 November 2026. Group 16 owns the research questions, source review and evaluation. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#214d46">
-  <meta name="description" content="Explore a decade of Australian road-crash hospitalisations through interactive D3 charts of road users, age and sex, and residential remoteness.">
-  <title>Roads in perspective | Australian road injury, 2011–2021</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#194c50">
+  <meta name="description" content="Group 16's interactive Australian road-injury dashboard: admissions, hospital bed use, demographics and residential patterns, 2011–2021.">
+  <title>Roads in perspective | Road injury dashboard</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="vendor/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
@@ -14,139 +14,39 @@
   <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <symbol id="i-road" viewBox="0 0 24 24"><path d="M7 3 4 21M17 3l3 18M12 3v3m0 5v3m0 5v2"/></symbol>
-      <symbol id="i-overview" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
-      <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 4v16h18M6 14l4-5 5 3 6-7"/></symbol>
-      <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-4a6 6 0 0 1 12 0v4M16 4a3 3 0 0 1 0 6m3 11v-4a6 6 0 0 0-2-4"/></symbol>
-      <symbol id="i-location" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
-      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.5"/></symbol>
-      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
-      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7m0-7L10 14M10 4H4v16h16v-6"/></symbol>
-      <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></symbol>
-      <symbol id="i-bag" viewBox="0 0 24 24"><path d="M4 7h16v14H4zM9 7V3h6v4M12 10v8m-4-4h8"/></symbol>
-      <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 4v17m18-9v9M3 17h18M3 12h18M8 8h11a2 2 0 0 1 2 2v2"/><circle cx="7" cy="8" r="2"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></symbol>
-    </defs>
-  </svg>
-
-  <aside class="sidebar" aria-label="Project navigation">
-    <a class="brand" href="#overview" aria-label="Roads in perspective, overview">
-      <span class="brand-mark"><svg class="icon"><use href="#i-road"/></svg></span>
-      <span>Roads in<br><strong>perspective.</strong></span>
-    </a>
-    <p class="sidebar-caption">Australian road injury</p>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#overview" class="nav-link active" aria-current="location" aria-label="Overview" title="Overview"><svg class="icon"><use href="#i-overview"/></svg><span>Overview</span></a>
-      <a href="#road-users" class="nav-link" aria-label="Road-user trends" title="Road-user trends"><svg class="icon"><use href="#i-trend"/></svg><span>Road-user trends</span></a>
-      <a href="#demographics" class="nav-link" aria-label="Age and sex" title="Age and sex"><svg class="icon"><use href="#i-people"/></svg><span>Age &amp; sex</span></a>
-      <a href="#remoteness" class="nav-link" aria-label="Remoteness" title="Remoteness"><svg class="icon"><use href="#i-location"/></svg><span>Remoteness</span></a>
-      <a href="#about-data" class="nav-link" aria-label="About the data" title="About the data"><svg class="icon"><use href="#i-info"/></svg><span>About the data</span></a>
-    </nav>
-    <div class="sidebar-bottom">
-      <div class="period-note"><span class="status-dot"></span>2011–2021 dataset</div>
-      <a class="download-link" href="data/group16-chart-data.zip" download><svg class="icon"><use href="#i-download"/></svg>Download the data</a>
-      <div class="sidebar-credit">COS30045 Data Visualisation<br><strong>Group 16</strong></div>
-    </div>
-  </aside>
-
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="breadcrumb">Australia <span>/</span> Road safety <span>/</span> Hospitalised injuries</div>
-      <a href="#about-data" class="source-pill"><span class="status-dot"></span>BITRE open data<svg class="icon"><use href="#i-info"/></svg></a>
+  <a class="skip-link" href="#dashboard">Skip to dashboard</a>
+  <svg class="symbols" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="road-icon" viewBox="0 0 24 24"><path d="M7 2 3 22M17 2l4 20M12 3v4m0 3v4m0 3v4"/></symbol>
+    <symbol id="reset-icon" viewBox="0 0 24 24"><path d="M4 9a8 8 0 1 1 1 9M4 3v6h6"/></symbol>
+    <symbol id="table-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M3 15h18M10 4v16"/></symbol>
+    <symbol id="download-icon" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+    <symbol id="expand-icon" viewBox="0 0 24 24"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6"/></symbol>
+    <symbol id="close-icon" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  </defs></svg>
+  <div class="app-shell">
+    <header class="app-header">
+      <a class="brand" href="#overview" aria-label="Roads in perspective, national overview"><span class="brand-symbol"><svg><use href="#road-icon"/></svg></span><span>Roads in <strong>perspective</strong><small>Group 16 · Australian road injury</small></span></a>
+      <div class="report-heading"><h1>Hospitalisations &amp; hospital bed use</h1><p>Australia, 2011–2021</p></div>
+      <div class="header-actions"><button type="button" id="export-page" class="quiet-button" title="Download the current page's chart data"><svg><use href="#download-icon"/></svg><span>Export page</span></button><button type="button" id="full-screen" class="icon-button" aria-label="Enter full screen" title="Full screen"><svg><use href="#expand-icon"/></svg></button></div>
     </header>
-
-    <main id="main">
-      <section id="overview" class="overview tracked-section" aria-labelledby="page-title">
-        <div class="overview-copy">
-          <p class="section-label">A decade of Australian road injury</p>
-          <h1 id="page-title">Look beyond<br>the crash.</h1>
-          <p class="hero-description">Road crashes leave a lasting burden. Explore how hospitalisations changed, who accounted for them, and how hospital bed use differed across Australia.</p>
-          <a class="primary-link" href="#road-users">Explore the story<svg class="icon"><use href="#i-arrow"/></svg></a>
-        </div>
-        <div class="overview-feature">
-          <div class="feature-top"><svg class="icon"><use href="#i-road"/></svg><span>One country. Eleven years.</span><span class="feature-period">2011–2021</span></div>
-          <p class="feature-headline">The trajectory isn't<br>the same for everyone.</p>
-          <svg id="overview-sparkline" class="overview-sparkline" role="img" aria-label="Indexed hospitalisation trends for vulnerable road users and light vehicle occupants, 2011 to 2021"></svg>
-          <div class="feature-key"><span><i class="swatch amber"></i>Vulnerable road users <strong id="vulnerable-change">—</strong></span><span><i class="swatch pale"></i>Light vehicle occupants <strong id="occupant-change">—</strong></span></div>
-          <p class="feature-footnote">Change in recorded hospitalisations, 2011 to 2021</p>
-        </div>
-      </section>
-
-      <div id="load-error" class="load-error" role="alert" hidden><strong>The data could not be loaded.</strong><p>Serve this folder through a web server and check that all three CSV files are present in the data folder.</p><button type="button" id="retry-load">Try again</button></div>
-      <noscript><div class="load-error">Please enable JavaScript to use these interactive charts. You can also download the CSV data from the navigation.</div></noscript>
-
-      <section class="summary-strip" aria-label="Summary of the supplied road-user extract">
-        <div class="summary-item"><span class="summary-icon"><svg class="icon"><use href="#i-bag"/></svg></span><div><p>Total hospitalisations</p><strong id="summary-admissions">—</strong><span>Across 2011–2021</span></div></div>
-        <div class="summary-item"><span class="summary-icon"><svg class="icon"><use href="#i-bed"/></svg></span><div><p>Total bed days</p><strong id="summary-bed-days">—</strong><span>As supplied in the road-user extract</span></div></div>
-        <div class="summary-item"><span class="summary-icon"><svg class="icon"><use href="#i-clock"/></svg></span><div><p>Bed days per hospitalisation</p><strong id="summary-average">—</strong><span>Aggregate descriptive ratio</span></div></div>
-      </section>
-
-      <section id="road-users" class="story-section tracked-section" aria-labelledby="trend-heading">
-        <div class="section-heading"><div><p class="section-label">Patterns over time</p><h2 id="trend-heading">How have road-user patterns changed?</h2><p>Compare the trajectories of four road-user groups from 2011 to 2021.</p></div><span class="section-period">11 annual observations</span></div>
-        <div class="chart-panel">
-          <div class="panel-toolbar">
-            <div class="segmented" role="group" aria-label="Road-user measure"><button type="button" data-trend-metric="admissions" aria-pressed="true">Hospitalisations</button><button type="button" data-trend-metric="bedDays" aria-pressed="false">Bed days</button></div>
-            <div class="toolbar-right"><label class="select-control">Show<select id="trend-scale"><option value="totals">Annual totals</option><option value="index">Change since 2011</option></select></label><button type="button" class="icon-button" id="reset-trends" aria-label="Reset road-user filters" title="Reset road-user filters"><svg class="icon"><use href="#i-reset"/></svg></button></div>
-          </div>
-          <div id="road-legend" class="legend-controls" role="group" aria-label="Select road-user groups"></div>
-          <div class="trend-layout">
-            <div class="chart-stage"><p id="trend-axis-label" class="chart-unit">Hospitalisations</p><div id="trend-chart" class="chart-container"><span class="loading-copy">Loading the road-user data…</span></div><p class="chart-instruction">Hover, tap or focus a year to inspect the values. Use the legend to compare groups.</p></div>
-            <aside class="year-snapshot" aria-labelledby="snapshot-heading"><label for="snapshot-year" id="snapshot-heading">Year in focus</label><select id="snapshot-year" aria-label="Year in focus"></select><div class="snapshot-total"><strong id="snapshot-total">—</strong><span id="snapshot-unit">hospitalisations</span></div><p id="snapshot-change" class="snapshot-change"></p><div id="snapshot-groups"></div><p class="snapshot-note">For the selected road-user groups</p></aside>
-          </div>
-          <div class="finding"><span class="finding-symbol"><svg class="icon"><use href="#i-trend"/></svg></span><p id="trend-finding" aria-live="polite"></p></div>
-          <div class="panel-notes"><p><svg class="icon"><use href="#i-info"/></svg>Admission reporting changed in Victoria in 2012 and NSW in 2017. <a href="#comparability-note">See comparability notes</a>.</p><button type="button" class="text-button" data-download="trends"><svg class="icon"><use href="#i-download"/></svg>Export selection</button></div>
-          <details class="data-disclosure"><summary>View the chart data</summary><div id="trend-table" class="table-scroll" tabindex="0" aria-label="Road-user data table"></div></details>
-        </div>
-      </section>
-
-      <section id="demographics" class="story-section tracked-section" aria-labelledby="demographic-heading">
-        <div class="section-heading"><div><p class="section-label">Who is represented?</p><h2 id="demographic-heading">How do age and sex compare?</h2><p>Explore the distribution of recorded hospitalisations across seven age groups.</p></div><span class="section-period">2011–2021 combined</span></div>
-        <div class="chart-panel">
-          <div class="panel-toolbar">
-            <div class="segmented" role="group" aria-label="Age and sex chart layout"><button type="button" data-demo-layout="grouped" aria-pressed="true">Side by side</button><button type="button" data-demo-layout="stacked" aria-pressed="false">Stacked</button></div>
-            <div class="toolbar-right"><label class="select-control">Sex<select id="demo-sex"><option value="both">Male &amp; female</option><option value="Male">Male</option><option value="Female">Female</option></select></label><label class="select-control">Sort<select id="demo-sort"><option value="age">Age order</option><option value="value">Most hospitalisations</option></select></label></div>
-          </div>
-          <div class="chart-caption-row"><p class="chart-unit">Hospitalisations, all years combined</p><div id="demo-legend" class="static-legend"><span><i class="swatch male"></i>Male</span><span><i class="swatch female"></i>Female</span></div></div>
-          <div id="demographic-chart" class="chart-container demographic-chart"><span class="loading-copy">Loading the demographic data…</span></div>
-          <p id="demo-selection" class="chart-instruction" aria-live="polite">Hover, tap or focus a bar for the exact count.</p>
-          <div class="finding"><span class="finding-symbol"><svg class="icon"><use href="#i-people"/></svg></span><p id="demo-finding" aria-live="polite"></p></div>
-          <div class="panel-notes"><p><svg class="icon"><use href="#i-info"/></svg>Counts describe hospitalisation burden, not individual risk. Age groups have different population sizes and widths.</p><button type="button" class="text-button" data-download="demographics"><svg class="icon"><use href="#i-download"/></svg>Export selection</button></div>
-          <details class="data-disclosure"><summary>View the chart data</summary><div id="demo-table" class="table-scroll" tabindex="0" aria-label="Age and sex data table"></div></details>
-        </div>
-      </section>
-
-      <section id="remoteness" class="story-section tracked-section" aria-labelledby="remoteness-heading">
-        <div class="section-heading"><div><p class="section-label">A different view of the burden</p><h2 id="remoteness-heading">Does the picture change beyond the cities?</h2><p>Compare recorded volume with bed days per hospitalisation, by patients’ usual residence.</p></div></div>
-        <div class="chart-panel">
-          <div class="panel-toolbar"><div class="segmented" role="group" aria-label="Remoteness measure"><button type="button" data-remote-metric="admissions" aria-pressed="true">Hospitalisations</button><button type="button" data-remote-metric="average" aria-pressed="false">Bed days per hospitalisation</button></div><label class="select-control">Year<select id="remote-year" aria-label="Remoteness year"></select></label></div>
-          <div class="remote-layout"><div class="chart-stage"><p id="remote-axis-label" class="chart-unit">Hospitalisations in 2021</p><div id="remoteness-chart" class="chart-container remoteness-chart"><span class="loading-copy">Loading the remoteness data…</span></div></div><aside class="measure-explainer"><span class="small-icon"><svg class="icon"><use href="#i-location"/></svg></span><h3 id="remote-explainer-title">Volume and burden</h3><p id="remote-explainer-copy">A larger count shows where more hospitalisations were recorded. It does not account for population size.</p><div class="measure-detail"><span id="remote-detail-label">Hospitalisations shown</span><strong id="remote-detail-value">—</strong><span id="remote-detail-note">Across the three supplied areas</span></div></aside></div>
-          <div class="year-slider"><span>2011</span><label class="sr-only" for="remote-year-slider">Choose a year for remoteness</label><input type="range" id="remote-year-slider" min="2011" max="2021" step="1" value="2021"><output for="remote-year-slider" id="remote-year-output">2021</output></div>
-          <div class="finding"><span class="finding-symbol"><svg class="icon"><use href="#i-location"/></svg></span><p id="remote-finding" aria-live="polite"></p></div>
-          <div class="panel-notes"><p><svg class="icon"><use href="#i-info"/></svg>Remoteness describes usual residence, not the crash location. The ratio is not a direct measure of injury severity.</p><button type="button" class="text-button" data-download="remoteness"><svg class="icon"><use href="#i-download"/></svg>Export selection</button></div>
-          <details class="data-disclosure"><summary>View the chart data</summary><div id="remote-table" class="table-scroll" tabindex="0" aria-label="Remoteness data table"></div></details>
-        </div>
-      </section>
-
-      <section id="about-data" class="about-section tracked-section" aria-labelledby="about-heading">
-        <div class="section-heading"><div><p class="section-label">Read the numbers in context</p><h2 id="about-heading">About the data</h2><p>Three prepared extracts. A clear scope for every comparison.</p></div><a class="secondary-link" href="data/group16-chart-data.zip" download><svg class="icon"><use href="#i-download"/></svg>Download CSV files</a></div>
-        <div class="about-grid"><div class="source-intro"><span class="source-badge">Source</span><h3>BITRE hospitalised<br>injury data</h3><p>The Bureau of Infrastructure and Transport Research Economics publishes road-crash hospitalisation series based on AIHW hospital data. This project uses Group 16’s prepared CSV extracts for 2011–2021.</p><a href="https://www.bitre.gov.au/resource/road-safety/hospitalised-injury" target="_blank" rel="noopener noreferrer">Visit the original dataset<svg class="icon"><use href="#i-external"/></svg></a><p class="coverage-note">Each chart keeps the coverage of its own extract. Filters act within that chart.</p></div>
-          <div class="method-accordions">
-            <details open><summary>What do these measures mean?</summary><div><p><strong>Hospitalisations</strong> are the counts in the supplied extracts, not a count of unique people. <strong>Bed days</strong> are the supplied total patient days. <strong>Bed days per hospitalisation</strong> is total bed days divided by total hospitalisations for the same selection.</p><p>This aggregate ratio is not a patient-level length-of-stay estimate. Bed days are reproduced as supplied; their mortality adjustment needs confirmation against the team’s workflow.</p></div></details>
-            <details id="comparability-note"><summary>Can every year be compared directly?</summary><div><p>The BITRE dictionary identifies admission-policy changes in Victoria in 2012 and NSW in 2017. A rehabilitation-coding change also affected bed-day counting from 2015–16. These changes can affect trends independently of road crashes.</p><p>A change around 2020 is an observation in these data. The chart alone cannot establish its cause.</p><a href="https://www.bitre.gov.au/sites/default/files/documents/hospitalised-injury-data-dictionary-september-2023.pdf" target="_blank" rel="noopener noreferrer">Read the data dictionary<svg class="icon"><use href="#i-external"/></svg></a></div></details>
-            <details><summary>Why do the chart totals differ?</summary><div><p>The road-user file contains <strong>410,884</strong> hospitalisations. The age/sex file contains <strong>410,868</strong>, which is 16 fewer. The three-area remoteness file contains <strong>402,051</strong>, which is 8,833 fewer.</p><p>The supplied files cover different sets of categories. The demographic file has no year field, and the remoteness file contains only Major Cities, Regional and Remote. The website preserves these exports and does not combine them into a single cross-filtered dataset. The precise exclusions should be reconciled in the KNIME workflow.</p></div></details>
-            <details><summary>What can counts tell us about risk?</summary><div><p>These extracts have no population or travel-exposure denominators. Higher counts do not establish higher individual risk. Different age-band widths and group sizes also affect comparisons. Bed-day burden can reflect care and reporting differences as well as injuries.</p></div></details>
-            <details><summary>References and reuse</summary><div class="references"><p>Bureau of Infrastructure and Transport Research Economics. (2023, September 22). <em>Hospitalised injury</em> [Data set]. <a href="https://www.bitre.gov.au/resource/road-safety/hospitalised-injury" target="_blank" rel="noopener noreferrer">https://www.bitre.gov.au/resource/road-safety/hospitalised-injury</a></p><p>Bureau of Infrastructure and Transport Research Economics. (2023, September). <em>Data dictionary: Hospitalised injuries from road crashes</em>. <a href="https://www.bitre.gov.au/sites/default/files/documents/hospitalised-injury-data-dictionary-september-2023.pdf" target="_blank" rel="noopener noreferrer">Data dictionary PDF</a>.</p><p>Prepared extracts supplied by Group 16. Original datasets remain subject to their publishers’ terms. D3 is distributed under the ISC licence; Manrope under the SIL Open Font License.</p></div></details>
-          </div>
-        </div>
-      </section>
-      <footer class="page-footer"><a class="footer-brand" href="#overview"><svg class="icon"><use href="#i-road"/></svg>Roads in perspective.</a><span>COS30045 Data Visualisation · Group 16</span><a href="#overview">Back to top ↑</a></footer>
-    </main>
+    <nav id="page-tabs" class="page-tabs" aria-label="Dashboard pages" role="tablist"></nav>
+    <div class="mobile-page-select"><label>Dashboard page<select id="page-selector" aria-label="Dashboard page"></select></label></div>
+    <section class="filter-strip" aria-label="Filters for this page"><div class="filter-caption">Page filters<small id="filter-scope">National records</small></div><div id="page-filters" class="page-filters"></div><button type="button" id="reset-page" class="reset-button"><svg><use href="#reset-icon"/></svg><span>Reset</span></button></section>
+    <div class="selection-strip"><p id="selection-summary" aria-live="polite">Loading official BITRE data…</p><span id="page-counter"></span></div>
+    <section id="kpi-strip" class="kpi-strip" aria-label="Summary for the current selection"></section>
+    <div class="mobile-chart-controls" aria-label="Choose a chart"><button type="button" id="previous-chart" aria-label="Previous chart">‹</button><select id="chart-picker" aria-label="Chart on this page"></select><button type="button" id="next-chart" aria-label="Next chart">›</button></div>
+    <main id="dashboard" class="dashboard-grid" tabindex="-1" aria-label="Dashboard charts"></main>
+    <div id="load-error" class="load-error" role="alert" hidden><h2>The dashboard data could not be loaded.</h2><p>Check the data folder and serve the project through a web server.</p><button type="button" id="retry-load">Try again</button></div>
+    <footer class="report-footer"><div class="page-navigation"><button type="button" id="previous-page" aria-label="Previous dashboard page">‹</button><span id="footer-page"></span><button type="button" id="next-page" aria-label="Next dashboard page">›</button></div><p id="page-note">Counts describe recorded care, not population-adjusted risk.</p><a href="#notes" id="notes-link">Sources &amp; definitions</a></footer>
   </div>
   <div id="chart-tooltip" class="chart-tooltip" role="tooltip" hidden></div>
-  <div id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <dialog id="expanded-dialog" aria-labelledby="expanded-title"><div class="expanded-header"><h2 id="expanded-title">Expanded chart</h2><button type="button" id="close-expanded" class="icon-button" aria-label="Close expanded chart"><svg><use href="#close-icon"/></svg></button></div><div id="expanded-content"></div></dialog>
+  <dialog id="data-dialog" aria-labelledby="data-dialog-title">
+    <div class="dialog-header"><div><p>Current chart selection</p><h2 id="data-dialog-title">Chart data</h2></div><button type="button" id="close-data" class="icon-button" aria-label="Close data table"><svg><use href="#close-icon"/></svg></button></div>
+    <p id="data-dialog-description"></p><div id="data-table"></div>
+    <div class="dialog-footer"><div class="table-pager"><button type="button" id="table-previous">Previous</button><span id="table-page"></span><button type="button" id="table-next">Next</button></div><button type="button" id="download-table"><svg><use href="#download-icon"/></svg>Download CSV</button></div>
+  </dialog>
+  <noscript><div class="load-error"><h2>JavaScript is required for the interactive dashboard.</h2><a href="data/dashboard-national.csv">Download the national data</a></div></noscript>
 </body>
 </html>

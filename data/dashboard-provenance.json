@@ -1,0 +1,46 @@
+{
+  "prepared": "2026-11-04",
+  "publication": "BITRE Hospitalised Injury, September 2023",
+  "sources": [
+    {
+      "file": "hospitalisation_injury_publication_sep2023.xlsx",
+      "url": "https://www.bitre.gov.au/sites/default/files/documents/hospitalisation_injury_publication_sep2023.xlsx",
+      "sha256": "28de6080801cb77b6867a5db2011cfc382abcbd6ffc467a2f96487b27b99c19e"
+    },
+    {
+      "file": "state-and-territory-hospitalisation-injury-publication-2023.xlsx",
+      "url": "https://www.bitre.gov.au/sites/default/files/documents/state-and-territory-hospitalisation-injury-publication-2023.xlsx",
+      "sha256": "b6883d6369d59809dd9eade2e7fba36e781e839a5f69c3c30cfee8a323be0d04"
+    },
+    {
+      "file": "First-Nations-hospitalised-injuries-2023.xlsx",
+      "url": "https://www.bitre.gov.au/sites/default/files/documents/First-Nations-hospitalised-injuries-2023.xlsx",
+      "sha256": "cf96a553eac9b20f87c5a92a9973ef94fa041281407b38b5504ac3ac73e75de6"
+    }
+  ],
+  "national": {
+    "sourceTrafficRows": 86140,
+    "aggregatedRows": 17953,
+    "hospitalisations": 410884,
+    "rawBedDays": 2018891,
+    "diedBedDaysSubtracted": 11504,
+    "bedDays": 2007387
+  },
+  "method": [
+    "Retain Cause of injury = Traffic only.",
+    "Use the published Hospitalisations column; do not subtract died cases twice.",
+    "Bed days = raw Bed days minus populated Died_bed_days.",
+    "Aggregate monthly records across year, sex, age, remoteness, road user and counterparty.",
+    "Map Missing age/residence to explicit Unknown categories; retain other/unknown sex.",
+    "Read state counts/bed days from the first independent raw block only; validate every state/year against T1.",
+    "Read First Nations published T1-T4 separately. Keep n.p. values null and do not infer them from totals.",
+    "Preserve the three legacy CSVs. New scripts extend preparation and must be reflected in the team KNIME workflow."
+  ],
+  "comparability": [
+    "Victoria 2012 and NSW 2017 admission-policy breaks.",
+    "Bed-day coding changed in 2015-16.",
+    "National and state fields describe residence, not crash location.",
+    "Counts are not population-adjusted risks. Bed-day ratios are aggregate resource-use measures.",
+    "First Nations tables have different category coverage; their totals need not equal T1."
+  ]
+}
