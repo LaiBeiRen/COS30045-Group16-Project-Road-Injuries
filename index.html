@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- GenAI acknowledgement: dashboard implementation assisted by OpenAI Codex, 4 November 2026. Group 16 owns the research questions, source review and evaluation. -->
+<!-- GenAI acknowledgement: dashboard implementation assisted by OpenAI Codex, 4 and 12 November 2026. Group 16 must review, understand and evaluate the submitted work. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -25,13 +25,13 @@
   </defs></svg>
   <div class="app-shell">
     <header class="app-header">
-      <a class="brand" href="#overview" aria-label="Roads in perspective, national overview"><span class="brand-symbol"><svg><use href="#road-icon"/></svg></span><span>Roads in <strong>perspective</strong><small>Group 16 · Australian road injury</small></span></a>
-      <div class="report-heading"><h1>Hospitalisations &amp; hospital bed use</h1><p>Australia, 2011–2021</p></div>
+      <a class="brand" href="#road" aria-label="Roads in perspective, road-user trends"><span class="brand-symbol"><svg><use href="#road-icon"/></svg></span><span>Roads in <strong>perspective</strong><small>Group 16 · Australia, 2011–2021</small></span></a>
+      <div class="report-heading"><h1>From admission to hospital stay</h1><p id="page-question">Do road-user groups follow the same trajectory?</p></div>
       <div class="header-actions"><button type="button" id="export-page" class="quiet-button" title="Download the current page's chart data"><svg><use href="#download-icon"/></svg><span>Export page</span></button><button type="button" id="full-screen" class="icon-button" aria-label="Enter full screen" title="Full screen"><svg><use href="#expand-icon"/></svg></button></div>
     </header>
     <nav id="page-tabs" class="page-tabs" aria-label="Dashboard pages" role="tablist"></nav>
     <div class="mobile-page-select"><label>Dashboard page<select id="page-selector" aria-label="Dashboard page"></select></label></div>
-    <section class="filter-strip" aria-label="Filters for this page"><div class="filter-caption">Page filters<small id="filter-scope">National records</small></div><div id="page-filters" class="page-filters"></div><button type="button" id="reset-page" class="reset-button"><svg><use href="#reset-icon"/></svg><span>Reset</span></button></section>
+    <section class="filter-strip" aria-label="Filters for this page"><div class="filter-caption">Page filters<small id="filter-scope">National records</small></div><div id="page-filters" class="page-filters"></div><button type="button" id="reset-page" class="reset-button" aria-label="Reset page filters" title="Reset page filters"><svg aria-hidden="true"><use href="#reset-icon"/></svg><span>Reset</span></button></section>
     <div class="selection-strip"><p id="selection-summary" aria-live="polite">Loading official BITRE data…</p><span id="page-counter"></span></div>
     <section id="kpi-strip" class="kpi-strip" aria-label="Summary for the current selection"></section>
     <div class="mobile-chart-controls" aria-label="Choose a chart"><button type="button" id="previous-chart" aria-label="Previous chart">‹</button><select id="chart-picker" aria-label="Chart on this page"></select><button type="button" id="next-chart" aria-label="Next chart">›</button></div>

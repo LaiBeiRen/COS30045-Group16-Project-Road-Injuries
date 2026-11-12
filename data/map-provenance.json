@@ -1,0 +1,22 @@
+{
+  "retrieved": "2026-11-12",
+  "publisher": "Australian Bureau of Statistics",
+  "title": "ASGS Edition 3, 2021 state and territory generalised boundaries",
+  "service": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/MapServer/1",
+  "queryUrl": "https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/MapServer/1/query?where=state_code_2021+IN+%28%271%27%2C%272%27%2C%273%27%2C%274%27%2C%275%27%2C%276%27%2C%277%27%2C%278%27%29&outFields=state_code_2021%2Cstate_name_2021&returnGeometry=true&outSR=4326&maxAllowableOffset=0.025&geometryPrecision=3&f=geojson",
+  "sourcePage": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/data-services-and-apis",
+  "rawFile": "data/source/abs-ste2021-generalised.geojson",
+  "rawSha256": "7139f0a0d0f9405d174940ce9ec9ce7c6a8b286ed30d1c7dcf37141ea7804e8d",
+  "preparedFile": "data/australia-states.geojson",
+  "preparedSha256": "cfa1d678494cb7e297b36b0844b69ef226d5f385e6827edb04dc7be367315b41",
+  "featureCount": 8,
+  "method": [
+    "Request codes 1\u20138; Other Territories excluded because hospital table has eight named states/territories.",
+    "Request WGS84 longitude/latitude, maximum allowable offset 0.025 degrees, geometry precision 3.",
+    "Retain original response; map state codes to BITRE abbreviations.",
+    "Omit tiny/degenerate exterior or hole rings with absolute planar area below 0.0005 square degrees for this national-scale display.",
+    "Orient retained polygon rings for D3 spherical rendering; no hospital measures changed.",
+    "Use this geographic outline for the full 2011\u20132021 series; it is not a historical boundary-change analysis."
+  ],
+  "attribution": "Australian Bureau of Statistics. ASGS Edition 3 (2021). Creative Commons Attribution 4.0, except where otherwise stated. Source geometry generalised for visualisation."
+}

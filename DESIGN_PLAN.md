@@ -1,16 +1,16 @@
 # Group 16 dashboard design decisions
 
-Revision: 4 November 2026. OpenAI Codex assisted this plan and implementation.
+Revision: 12 November 2026. OpenAI Codex assisted this plan and implementation.
 
 The lecturer requested a dashboard, multiple pages, no scrolling, more charts and more chart types. The Power BI report is a functional reference. The team asked for a distinctive analysis and continuity with its existing project.
 
 The analytical focus is hospitalisation volume versus hospital bed use. A paired-dot comparison places admission and bed-day shares on the same scale and links selections to compatible road-user filters. Interpret this as resource use, not injury severity or personal risk.
 
-Ten pages contain nine analytical pages/20 chart panels plus Data notes. The overview has four charts; detailed pages use two large charts to preserve label readability. Charts can expand. Narrow/short screens use page and chart selectors; tables are paginated. The earlier hero and scrolling story layout are removed.
+The team requested a smaller, explainable scope. Twelve charts replace twenty. Three lenses—Road users, People and Place—have four charts each, split across two screens per lens. A seventh Data notes screen contains reference material. Each analysis screen has two large charts to preserve label readability. Charts can expand. Narrow/short screens use page and chart selectors; tables are paginated. The overview and First Nations screens are retired; their data remain preserved.
 
-Retain local Manrope, the road symbol, deep teal #194c50, teal #247f7d and ochre #bb7424. Use muted blue #58749b, white panels, grey canvas #eef2f4, compact chrome and minimal shadows. The initial style-search suggestion of storytelling/aurora effects was rejected as incompatible. A targeted analytics-dashboard search supported dense comparative layouts.
+Retain local Manrope, the road symbol, deep teal #194c50, teal #247f7d and ochre #bb7424. Use muted blue #58749b, white panels, grey canvas #eef2f4, compact chrome and minimal shadows. Grouped navigation exposes the three research lenses. A continuous measure strip connects admission count, bed use and ratio; a plain-language question orients every screen. The initial design-system suggestion of an enterprise marketing gateway was rejected as incompatible. A narrower Analytics Dashboard product match supported comparative/drill-down layouts.
 
-See DASHBOARD_GUIDE.md for the page catalogue, eight chart families and filter scope. Chart variants are not inflated into unique type counts. National filters combine coexisting dimensions; state and First Nations marginal tables remain separate. Chart-local controls affect their own panel. Current scope remains visible.
+See DASHBOARD_GUIDE.md for the twelve-chart catalogue and filter scope, and CHART_CODE_GUIDE.md for the bilingual teaching modules. Chart variants are not inflated into unique type counts. The new ABS-based choropleth defaults to bed days per admission; its legend, ACT callout and linked state matrix serve a specific spatial question. National filters combine coexisting dimensions; state totals remain separate. Chart-local controls affect their own panel. Current scope remains visible.
 
 Preserve old CSVs. Reconcile national annual and state/year controls from unchanged official workbooks. Retain suppression and unknown categories. Record the bed-day adjustment in provenance. Do not fabricate population rates or causal explanations. Keyboard access, visible focus, data alternatives and reduced motion are included; full assistive-technology testing remains pending.
 

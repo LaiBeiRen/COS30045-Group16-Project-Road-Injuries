@@ -1,75 +1,83 @@
-# Dashboard guide for Group 16
+# Roads in perspective: twelve-chart dashboard
 
-## Project-specific analysis
+Revision: 12 November 2026. OpenAI Codex assisted the implementation and documentation. This guide describes the local revision, not a claim that GitHub Pages or Mercury has been updated.
 
-The lecturer requested a dashboard with multiple pages, no scrolling, more charts and greater chart variety. The revision retains the teal/amber identity and focuses on **hospitalisation volume compared with hospital bed use**.
+## Scope and design
 
-On Burden comparison, teal dots encode admission shares and amber dots encode bed-day shares. Their distance shows whether a group's share of bed use exceeds its admission share. In the 2021 national selection, pedestrians account for about 5.91% of admissions and 11.43% of bed days: +5.52 percentage points. This describes resource use, not personal risk or clinical severity. The analysis is project-specific; it does not claim nobody else uses paired dots.
+Twelve charts are organised into three subject lenses, four charts per lens. Each lens has two analysis screens, with two large charts per screen. A seventh Data notes screen contains reference text and is excluded from the chart count. Narrow or short displays use page/chart selectors. The document does not scroll; charts can expand and data tables are paginated.
 
-## Pages and rationale
+The central question is **whether hospitalisation volume and hospital bed use tell the same story**. A paired share comparison, ratio choropleth and volume-versus-ratio scatterplot address that question. The design retains the team's teal/amber identity but uses grouped subject navigation, a continuous measure strip, and an explicit question for each screen.
 
-| Page | Charts | Purpose |
+| Lens | Screen | Chart catalogue |
 | --- | --- | --- |
-| National picture | Annual line, road-user donut, age bars, residence bars | Establish selected volume and composition |
-| Road-user trends | Indexed multi-line, treemap | Compare relative changes and detailed category sizes |
-| Burden comparison | Paired-dot shares, road-user/year heatmap | Compare resource shares with historical context |
-| Age & sex | Mirrored bars, paired-dot bed-day ratios | Compare male/female counts and hospital-use ratios |
-| Demographic trends | Age/year heatmap, stacked area | Locate temporal patterns and sex contributions |
-| State patterns | State/year heatmap, focused-state line | Compare jurisdictions and inspect one trajectory |
-| Geographic burden | State lollipops, residence scatter | Compare counts and count-versus-bed-day patterns |
-| First Nations | Indexed lines, age lollipops | Examine changes in recorded counts and age distribution |
-| First Nations profiles | Road-user bars, residential composition | Inspect separate published categories and suppression |
-| Data notes | Four reference panels | Explain definitions, provenance and limits |
+| Road users | Trends & mix | C01 indexed multi-line; C02 detailed road-user treemap |
+| Road users | Admission vs stay | C03 paired admission/bed-day shares; C04 road-user/year heatmap |
+| People | Age & sex | C05 mirrored age/sex bars; C06 age/sex paired bed-use ratios |
+| People | Changes over time | C07 age/year heatmap; C08 sex stacked area |
+| Place | Map & time | C09 state choropleth; C10 state/year heatmap |
+| Place | Volume vs stay | C11 state lollipop; C12 residence scatterplot |
 
-Twenty chart panels use eight families: line, bar, donut, heatmap, treemap, scatter, stacked area and paired dots. Pyramid and lollipop are related variants. Dense pages use two large charts to keep labels readable on laptops. Narrow screens use page/chart selectors, and data tables use pagination.
+There is a purposeful mix of trend, matrix, area, spatial, composition and paired-comparison encodings. Reusing heatmaps and paired dots is intentional. Pyramid and lollipop are bar/dot comparison variants; they are not counted as additional independent families to inflate variety.
 
-## Filter scope
+The former national overview and First Nations chart screens are retired from the active dashboard to keep the teaching scope manageable. The First Nations and original prototype data remain preserved in the repository. They are not loaded by the current UI.
 
-National pages share year, measure, sex, age, road-user group and residence. These dimensions coexist in the source rows. Categorical charts show the selected year; temporal charts retain 2011–2021 under the other filters.
+## Filters and interactions
 
-State pages use year/measure only. The local state menu affects its trajectory. Clicking a state in Geographic burden opens State patterns. First Nations pages use year only: their published age, road-user and residence tables are separate marginals with different coverage and are never joined for cross-filtering.
+Road-user and People screens combine year, volume measure, sex, age, broad road-user group and residence. These fields coexist in the national source rows. Time charts retain all 2011–2021 years under the other filters, while selected-period charts use the pinned year or all years. Selecting a detailed road-user tile or paired-dot mark sets its broader group, not the individual category.
 
-Chart-header controls change only their own chart. Reset restores page filters while retaining local view preferences. Clicking detailed road-user marks selects their broader road-user group; the selection strip makes that scope visible. Each chart has exact-value inspection, expansion, a paginated data table and CSV export.
+Place screens use year and volume measure only. State data are separate totals and cannot inherit national age/sex/road filters. The residence scatter uses national residence totals for that year, not the known-state subtotal. Highlighting a state does not filter the whole page to that state; it highlights the corresponding map feature and matrix row.
 
-Native menus and tab arrow navigation support keyboard operation. Marks can receive focus; selectable marks accept Enter/Space. Escape dismisses tooltips and dialogs. Full screen-reader and participant validation remain pending.
+Three chart-local controls remain: C01 index/totals, C03 detailed users/four groups, and C09 ratio/selected volume. Charts explicitly defined as ratios or shares retain those measures when the volume menu changes. Reset restores page filters to 2021/all categories and highlights Vic; local view choices remain.
 
-## Calculations and source changes
+Every chart provides keyboard focus and exact-value inspection, expansion, a paginated table and CSV export. Page tabs support arrow/Home/End navigation. An ACT map callout makes the small feature easier to select. Full screen-reader and participant evaluation remain to be completed; keyboard checks alone do not establish accessibility compliance.
 
-- Index = year value / the same group's 2011 value × 100. Index 120 means +20% since 2011.
-- Year-on-year change = (current / previous − 1) × 100, using the chosen volume measure and same filters.
-- Admission share = group hospitalisations / selected hospitalisations × 100.
-- Bed-day share = group bed days / selected bed days × 100.
-- Share gap = bed-day share − admission share, in percentage points.
-- Bed days per admission = summed bed days / summed hospitalisations. Do not average annual ratios directly.
+## Calculations
 
-National hospitalisations total 410,884. Adjusted bed days total 2,007,387, giving about 4.89 bed days per admission. The old prototype used 2,018,891 raw bed days and 4.91. The 11,504 difference is the populated Died_bed_days field, now recorded in provenance. Legacy CSVs remain unchanged.
+```text
+2011 index = current-year value / the same group's 2011 value × 100
+Change since 2011 (%) = index − 100
+Bed days per admission = SUM(bed days) / SUM(hospitalisations)
+Admission share (%) = category admissions / selected admissions × 100
+Bed-day share (%) = category bed days / selected bed days × 100
+Share gap (percentage points) = bed-day share − admission share
+```
 
-The extraction retains Traffic records, uses the published Hospitalisations column without subtracting deaths twice, adjusts bed days, and aggregates monthly rows across the retained dimensions. National annual and every state/year count match published T1 controls. First Nations n.p. cells remain null and are never recovered by subtracting totals. Unknown categories remain explicit. Geography describes usual residence, not crash location; counts are not population-adjusted risk rates.
+Zero/absent denominators yield unavailable ratios. Combined-year ratios use summed numerators and denominators rather than the unweighted mean of annual ratios. Colours and legends are local: for example, teal/amber mean admissions/bed days in C03, and Male/Female in C05–C06.
 
-## Explain the code
+Checks with default all-category filters: national 2021 has 39,505 hospitalisations and 198,934 adjusted bed days, a 5.04 ratio. The eight known-state totals are 39,035 and 196,498, a 5.03 ratio. Pedestrian 2021 admission and bed-day shares are approximately 5.91% and 11.43%, a 5.52 percentage-point gap. These are measures of recorded hospital care, not personal risk or clinical severity.
 
-Search for function names rather than memorising line numbers:
+## Data and map preparation
 
-1. `initialise()` loads prepared national/state CSVs with `d3.csv()`, and comparison/provenance JSON with `d3.json()`. It checks national totals.
-2. `makeContext()` combines compatible national filters and prepares selected-year/all-year rows.
-3. `renderAnalysis()` aggregates current-page data and calls reusable drawing functions.
-4. Drawing functions use D3 scales, data joins and SVG paths, rectangles, circles and text.
-5. `bindControls()` connects actions to state changes and rendering. `setSelection()` synchronises linked selections and menus.
+The unchanged BITRE/AIHW September 2023 sources contain 2011–2021 hospital records. National preparation retains Traffic records and the published Hospitalisations field without subtracting died cases twice. Adjusted bed days are 2,018,891 raw days minus 11,504 populated died-bed days = 2,007,387. Total admissions remain 410,884. National annual and each state/year count are checked against published controls. Unknown categories remain explicit.
 
-## Stand-up wording
+`scripts/prepare_dashboard_data.py` reproduces the hospital extraction. The original three team CSVs remain unchanged. First Nations source tables remain separate, with suppressed cells retained as null/n.p.; the twelve active charts use national and state data only.
 
-“We revised the interface in response to feedback. It now uses dashboard pages without scrolling, with larger views for detailed comparisons. We expanded the chart variety and made the relationship between hospitalisation counts and bed use our analytical focus. Our paired-dot chart compares each road user's share of admissions with its share of bed days. Page filters combine compatible data dimensions; chart-specific controls change only that chart. We still need to integrate the extended preparation into KNIME, evaluate the revision with users, and update the Design Book.”
+The map adds an official geographic source: ABS ASGS Edition 3, 2021 generalised state/territory boundaries. `scripts/prepare_map.py` saves the original response, maps state codes 1–8 to BITRE abbreviations, omits tiny/degenerate rings for the national-scale display, and orients rings for D3. The map uses all eight matching jurisdictions. Other Territories are outside the eight-state hospital table. Geometry is in `data/australia-states.geojson`; hashes, query URL and transformations are in `data/map-provenance.json`.
 
-## Remaining work
+C09 uses a Mercator projection fitted to the panel. Ratio colour limits are fixed across all individual years and combined-year ratios. For volume, individual-year limits use all annual state values; an all-years view uses combined totals. There is a labelled continuous scale. It is a choropleth because values control geographic area fill. The default hospital-use ratio does not adjust for population and does not measure injury risk.
 
-Reproduce/document the new extraction in the KNIME workflow, including embedded data and team naming. Update the Design Book and existing survey tasks. Collect actual feedback and document resulting changes. Complete assistive-technology checks and Mercury deployment. The new Python extraction is not a claim that the submitted KNIME file has been updated.
+Geography describes patients' usual residence, not crash location. One 2021 outline is used for the whole period; this is not an analysis of historical boundary changes. Victoria 2012 and NSW 2017 admission-policy changes and the 2015–16 bed-day coding change affect comparability. Counts across unequal age bands are not age-specific risk rates.
+
+## Code and presentation
+
+See **CHART_CODE_GUIDE.md** for the bilingual explanation of every chart, D3 methods, formulas, demonstrations and likely questions. Suggested speaking groups are C01–C04, C05–C08 and C09–C12. All three presenters should understand the common loading/filtering/drawing pipeline and acknowledge actual contributions.
+
+`initialise()` loads two CSVs and the geography/provenance JSON files. `makeContext()` prepares compatible selections. `renderAnalysis()` calculates each chart's inputs. Reusable helpers map inputs to SVG marks. `bindControls()`, `setSelection()` and `interactive()` update views after user actions. The PAGES catalogue declares exactly twelve charts and is checked at startup.
+
+Suggested explanation: “We reduced the scope to twelve charts across Road users, People and Place. The focus is whether admissions and hospital bed use tell the same story. We use a share-gap comparison and a ratio map to make that distinction visible. The dashboard has two readable charts per screen, shared filters where dimensions are compatible, and local controls where a view only applies to one chart.”
+
+## Remaining submission work
+
+Incorporate/document the extended extraction in KNIME with embedded data and the required team name. Revise the existing Design Book and survey tasks, which describe older versions. Collect actual feedback, record design changes and complete assistive-technology testing. Complete Mercury deployment as required by the assignment. None of those steps is represented as completed by this code revision.
 
 ## References
+
+Australian Bureau of Statistics. (2021, July 20). *Data services and APIs: Australian Statistical Geography Standard (ASGS), Edition 3*. https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/data-services-and-apis
+
+Australian Bureau of Statistics. (n.d.). *Website privacy, copyright and disclaimer*. https://www.abs.gov.au/website-privacy-copyright-and-disclaimer
 
 Bureau of Infrastructure and Transport Research Economics. (2023a, September). *Data dictionary: Hospitalised injuries from road crashes*. https://www.bitre.gov.au/sites/default/files/documents/hospitalised-injury-data-dictionary-september-2023.pdf
 
 Bureau of Infrastructure and Transport Research Economics. (2023b, September 22). *Hospitalised injury* [Data set]. https://www.bitre.gov.au/resource/road-safety/hospitalised-injury
 
 Observable. (n.d.). *D3* (Version 7.9.0) [JavaScript library]. https://d3js.org/
-
-GenAI acknowledgement: OpenAI Codex assisted this implementation and guide on 4 November 2026. The team is responsible for checking its interpretations and explaining its submitted work.
