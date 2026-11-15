@@ -1,10 +1,3 @@
-/*
- * Roads in perspective — Group 16, COS30045.
- * GenAI acknowledgement: OpenAI Codex assisted this dashboard implementation
- * on 4 and 12 November 2026. The source workbooks are BITRE/AIHW publications.
- * Read scripts/prepare_dashboard_data.py and DASHBOARD_GUIDE.md for the data
- * grain, formulas, filter scope and remaining KNIME integration work.
- */
 (() => {
   'use strict';
 
